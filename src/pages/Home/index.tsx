@@ -21,6 +21,7 @@ import { DrawerScreenProps } from '@react-navigation/drawer';
 import { RootStackParamList } from 'src/routes';
 import { carregarDados, carregarMaisViagens } from 'src/store/reducers/viagem/middlewares';
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
+import { imagesUrl } from 'src/config/api';
 
 export default function Home(props: DrawerScreenProps<RootStackParamList, "Home">) {
   const todasAsViagens = useRef<Viagem[]>([]);
@@ -186,7 +187,7 @@ export default function Home(props: DrawerScreenProps<RootStackParamList, "Home"
           <View style={styles.viagens}>
             {viagens.map((viagem, index) => (
               <Card key={index} style={styles.viagemContainer}>
-                <Image source={viagem.foto} style={styles.viagemImagem} />
+                <Image source={{ uri: `${imagesUrl}${viagem.foto}` }} style={styles.viagemImagem} />
                 <View style={styles.viagemDescricao}>
                   <Title style={styles.viagemTitulo}>{viagem.titulo}</Title>
                   <View style={styles.viagemDetalhes}>

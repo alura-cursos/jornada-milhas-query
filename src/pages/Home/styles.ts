@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
   viagemImagem: {
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    height: 260,
     width: "100%",
   },
   viagemDescricao: {
