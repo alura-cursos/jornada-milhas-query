@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { carregarDestinos, carregarOrigens, getViagens } from 'src/services/viagens';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { baseUrl } from 'src/config/api';
 
 export const carregarDados = createAsyncThunk(
   'viagem/carregarDados',
@@ -29,3 +31,9 @@ export const carregarMaisViagens = createAsyncThunk(
     return { novasViagens, pagina}
   }
 )
+
+export const viagensApi = createApi({
+  reducerPath: 'viagensApi',
+  baseQuery: fetchBaseQuery({ baseUrl }),
+  endpoints: () => ({})
+})
