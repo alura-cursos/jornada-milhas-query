@@ -1,30 +1,6 @@
-import atacama from "./viagens/atacama.png";
-import veneza from "./viagens/veneza.png";
-import patagonia from "./viagens/patagonia.png";
-import grandCanyon from "./viagens/grandCanyon.png";
-import turquia from "./viagens/turquia.png";
-import cordilheiraDosAndes from "./viagens/cordilheiraDosAndes.png";
-import novaYork from "./viagens/novaYork.png";
-import bonito from "./viagens/bonito.png";
-import toronto from "./viagens/toronto.png";
-import viena from "./viagens/viena.png";
-import salvador from "./viagens/salvador.png";
-import arraialDoCabo from "./viagens/arraialDoCabo.png";
-import tokyo from "./viagens/tokyo.png";
-import recife from "./viagens/recife.png";
-import cusco from "./viagens/cusco.png";
-import sidney from "./viagens/sidney.png";
-import bangkok from "./viagens/bangkok.png";
-import paris from "./viagens/paris.png";
-import amsterda from "./viagens/amsterda.png";
-import cidadeDoMexico from "./viagens/cidadeDoMexico.png";
-import madrid from "./viagens/madrid.png";
-import losAngeles from "./viagens/losAngeles.png";
-import lisboa from "./viagens/lisboa.png";
-
 import uuid from "react-native-uuid";
-import { Usuario } from "src/types/usuario";
-import { TipoViagem, Viagem } from "src/types/viagem";
+import { Usuario } from "../src/types/usuario";
+import { TipoViagem, Viagem } from "../src/types/viagem";
 
 const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
   usuarios: [
@@ -45,7 +21,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: "Atravesse o Deserto no Chile",
       valor: 3769,
-      foto: atacama,
+      foto: "viagens/atacama.png",
       dataIda: "23/09/2025",
       dataVolta: "30/09/2025",
       origem: "Rio Branco",
@@ -56,7 +32,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: "Navegue pelos canais de Veneza",
       valor: 4638.90,
-      foto: veneza,
+      foto: "viagens/veneza.png",
       dataIda: "13/07/2025",
       dataVolta: "23/07/2025",
       origem: "Maceió",
@@ -67,7 +43,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: "Conheça a Terra do Fogo",
       valor: 5769.50,
-      foto: patagonia,
+      foto: "viagens/patagonia.png",
       dataIda: "03/04/2025",
       dataVolta: "13/04/2025",
       origem: "Fortaleza",
@@ -78,7 +54,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: "Aprecie milhões de anos de história geológica",
       valor: 5837.53,
-      foto: grandCanyon,
+      foto: "viagens/grandCanyon.png",
       dataIda: "06/08/2025",
       dataVolta: "26/08/2025",
       origem: "Cuiabá",
@@ -89,7 +65,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: "Conheça a Turquia",
       valor: 1000,
-      foto: turquia,
+      foto: "viagens/turquia.png",
       dataIda: "09/09/2024",
       dataVolta: "12/09/2024",
       origem: "Belo Horizonte",
@@ -100,7 +76,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: "Visite a impressionante Cordilheira dos Andes",
       valor: 2946,
-      foto: cordilheiraDosAndes,
+      foto: "viagens/cordilheiraDosAndes.png",
       dataIda: "19/11/2025",
       dataVolta: "04/12/2025",
       origem: "Palmas",
@@ -111,7 +87,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: "1 semana em Nova York",
       valor: 1550,
-      foto: novaYork,
+      foto: "viagens/novaYork.png",
       dataIda: '12/06/2023',
       dataVolta: '19/06/2023',
       origem: 'Rio de Janeiro',
@@ -122,7 +98,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Conheça bonito',
       valor: 580,
-      foto: bonito,
+      foto: "viagens/bonito.png",
       dataIda: '14/12/2023',
       dataVolta: '17/12/2023',
       origem: 'São Paulo',
@@ -133,7 +109,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Vá para Toronto',
       valor: 900,
-      foto: toronto,
+      foto: "viagens/toronto.png",
       dataIda: '01/02/2024',
       origem: 'São Paulo',
       estadoOrigem: 'São Paulo',
@@ -143,7 +119,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Uma viagem inesquecível',
       valor: 5590,
-      foto: viena,
+      foto: "viagens/viena.png",
       dataIda: '05/03/2024',
       dataVolta: '10/03/2024',
       origem: 'Recife',
@@ -154,7 +130,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Um encontro com o Brasil',
       valor: 850,
-      foto: salvador,
+      foto: "viagens/salvador.png",
       dataIda: '07/09/2024',
       dataVolta: '17/09/2024',
       origem: 'Florianópolis',
@@ -165,7 +141,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Maldivas brasileiras',
       valor: 999,
-      foto: arraialDoCabo,
+      foto: "viagens/arraialDoCabo.png",
       dataIda: '23/08/2024',
       dataVolta: '23/09/2024',
       origem: 'Manaus',
@@ -176,7 +152,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: '3 noites em Tokyo',
       valor: 1207,
-      foto: tokyo,
+      foto: "viagens/tokyo.png",
       dataIda: '23/08/2024',
       dataVolta: '26/08/2024',
       origem: 'Vitória',
@@ -187,7 +163,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Aproveite seu verão em grande estilo',
       valor: 2890,
-      foto: recife,
+      foto: "viagens/recife.png",
       dataIda: '25/11/2024',
       dataVolta: '10/12/2024',
       origem: 'Florianópolis',
@@ -198,7 +174,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Conheça Cusco',
       valor: 3940,
-      foto: cusco,
+      foto: "viagens/cusco.png",
       dataIda: '10/01/2025',
       dataVolta: '20/01/2025',
       origem: 'Belo Horizonte',
@@ -209,7 +185,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Estude na Austrália',
       valor: 6020,
-      foto: sidney,
+      foto: "viagens/sidney.png",
       dataIda: '25/02/2025',
       origem: 'Goiânia',
       estadoOrigem: 'Goiás',
@@ -219,7 +195,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Uma semana incrível',
       valor: 9370,
-      foto: bangkok,
+      foto: "viagens/bangkok.png",
       dataIda: '18/03/2025',
       dataVolta: '25/03/2025',
       origem: 'São Luis',
@@ -230,7 +206,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Visite a cidade luz',
       valor: 12356,
-      foto: paris,
+      foto: "viagens/paris.png",
       dataIda: '05/04/2025',
       dataVolta: '30/04/2025',
       origem: 'Brasília',
@@ -241,7 +217,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: '5 dias em Amsterdã',
       valor: 5700,
-      foto: amsterda,
+      foto: "viagens/amsterda.png",
       dataIda: '02/05/2025',
       dataVolta: '07/05/2025',
       origem: 'Maceió',
@@ -252,7 +228,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'México como você nunca viu',
       valor: 2460,
-      foto: cidadeDoMexico,
+      foto: "viagens/cidadeDoMexico.png",
       dataIda: '14/05/2025',
       dataVolta: '24/05/2025',
       origem: 'Belém',
@@ -263,7 +239,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Viva a noite de Madrid',
       valor: 1900,
-      foto: madrid,
+      foto: "viagens/madrid.png",
       dataIda: '10/06/2025',
       dataVolta: '20/06/2025',
       origem: 'Porto Alegre',
@@ -274,7 +250,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'O melhor de Los Angeles',
       valor: 10850,
-      foto: losAngeles,
+      foto: "viagens/losAngeles.png",
       dataIda: '25/07/2025',
       dataVolta: '30/07/2025',
       origem: 'Palmas',
@@ -285,7 +261,7 @@ const server: { usuarios: Usuario[]; viagens: Viagem[] } = {
     {
       titulo: 'Passeie pela capital portuguesa',
       valor: 2397,
-      foto: lisboa,
+      foto: "viagens/lisboa.png",
       dataIda: '14/08/2025',
       dataVolta: '24/08/2025',
       origem: 'Teresina',

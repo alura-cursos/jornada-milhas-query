@@ -1,5 +1,3 @@
-import { ImageSourcePropType } from 'react-native';
-
 export enum TipoViagem {
   ida = 'ida',
   idaEVolta = 'idaEVolta'
@@ -7,7 +5,7 @@ export enum TipoViagem {
 export interface Viagem {
   titulo: string,
   valor: number,
-  foto: ImageSourcePropType,
+  foto: string,
   dataIda: string,
   dataVolta?: string,
   origem: string,
