@@ -23,6 +23,7 @@ import { carregarMaisViagens, useGetViagensQuery } from 'src/store/reducers/viag
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 import { imagesUrl } from 'src/config/api';
 import { mudarPagina } from 'src/store/reducers/viagem';
+import Pagination from 'src/components/Pagination';
 
 export default function Home(props: DrawerScreenProps<RootStackParamList, "Home">) {
   const todasAsViagens = useRef<Viagem[]>([]);
@@ -211,13 +212,11 @@ export default function Home(props: DrawerScreenProps<RootStackParamList, "Home"
                 <Button mode='contained' style={styles.verDetalhes}> Ver detalhes </Button>
               </Card>
             ))}
-            {!ehUltimaPagina && (
-              <Button onPress={() => dispatch(mudarPagina(paginaAtual + 1))}>
-                <Text style={{ fontSize: 25 }}>
-                  Ver mais
-                </Text>
-              </Button>
-            )}
+            <Pagination
+              totalPages={totalPaginas}
+              currentPage={paginaAtual}
+              onClick={pagina => dispatch(mudarPagina(pagina))}
+            />
           </View>
         </View>
         <Portal>
