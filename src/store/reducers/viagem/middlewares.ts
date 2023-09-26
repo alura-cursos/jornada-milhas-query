@@ -35,5 +35,11 @@ export const carregarMaisViagens = createAsyncThunk(
 export const viagensApi = createApi({
   reducerPath: 'viagensApi',
   baseQuery: fetchBaseQuery({ baseUrl }),
-  endpoints: () => ({})
+  endpoints: builder => ({
+    getViagens: builder.query<{}, void>({
+      query: () => 'viagens'
+    })
+  })
 })
+
+export const { useGetViagensQuery } = viagensApi;

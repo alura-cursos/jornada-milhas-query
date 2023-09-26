@@ -19,7 +19,7 @@ import styles from './styles';
 import { valoresPadrao } from './consts';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { RootStackParamList } from 'src/routes';
-import { carregarDados, carregarMaisViagens } from 'src/store/reducers/viagem/middlewares';
+import { carregarDados, carregarMaisViagens, useGetViagensQuery } from 'src/store/reducers/viagem/middlewares';
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 import { imagesUrl } from 'src/config/api';
 
@@ -37,6 +37,7 @@ export default function Home(props: DrawerScreenProps<RootStackParamList, "Home"
   const dispatch = useAppDispatch();
   const { buscando, paginaAtual, totalPaginas, viagens } = useAppSelector(state => state.viagem);
   const { destinos, origens } = useAppSelector(state => state.filtro);
+  const {} = useGetViagensQuery();
 
   const { cidade = '', estado = '' } = usuarioLogado || {};
   const filtros: Filtros = {
