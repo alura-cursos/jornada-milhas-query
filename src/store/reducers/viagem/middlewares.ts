@@ -39,7 +39,19 @@ export const viagensApi = createApi({
   endpoints: builder => ({
     getViagens: builder
       .query<{ paginaAtual: number, totalPaginas: number, viagens: Viagem[] }, number>(
-        { query: (pagina) => `viagens?pagina=${pagina}` }
+        {
+          query: (pagina) => `viagens?pagina=${pagina}`,
+          serializeQueryArgs: ({ endpointName }) => {
+            return endpointName
+          },
+          forceRefetch({ currentArg, previousArg }) {
+            return currentArg !== previousArg
+          },
+          merge: (currentCache, newItems) => {
+            currentCache.paginaAtual = newItems.paginaAtual;
+            currentCache.viagens.push(...newItems.viagens);
+          },
+        }
       )
   })
 })
