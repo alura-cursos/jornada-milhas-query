@@ -36,8 +36,9 @@ export default function Home(props: DrawerScreenProps<RootStackParamList, "Home"
   const usuarioLogado = useAppSelector(state => state.usuario.usuarioLogado);
   const dispatch = useAppDispatch();
   const { destinos, origens } = useAppSelector(state => state.filtro);
-  const { isLoading, isFetching, data } = useGetViagensQuery();
-  const { paginaAtual = 1, totalPaginas = 1, viagens = [] } = data || {};
+  const paginaAtual = useAppSelector(state => state.viagem.paginaAtual);
+  const { isLoading, isFetching, data } = useGetViagensQuery(paginaAtual);
+  const { totalPaginas = 1, viagens = [] } = data || {};
 
   const { cidade = '', estado = '' } = usuarioLogado || {};
   const filtros: Filtros = {

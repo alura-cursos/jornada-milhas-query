@@ -37,9 +37,10 @@ export const viagensApi = createApi({
   reducerPath: 'viagensApi',
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: builder => ({
-    getViagens: builder.query<{ paginaAtual: number, totalPaginas: number, viagens: Viagem[] }, void>({
-      query: () => 'viagens'
-    })
+    getViagens: builder
+      .query<{ paginaAtual: number, totalPaginas: number, viagens: Viagem[] }, number>(
+        { query: (pagina) => `viagens?pagina=${pagina}` }
+      )
   })
 })
 
