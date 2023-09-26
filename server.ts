@@ -27,7 +27,7 @@ app.get('/viagens', async (req: Request<{}, {}, {}, { pagina: string, limite?: s
           paginaAtual,
           totalPaginas: Math.ceil(totalViagens / limiteAtual),
         }),
-      10000
+      2000
     )
   );
   

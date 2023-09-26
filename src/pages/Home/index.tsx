@@ -1,4 +1,4 @@
-import { startTransition, useEffect, useRef, useState } from 'react';
+import { startTransition, useRef, useState } from 'react';
 import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { Button, Card, Modal, Portal, Title, TouchableRipple } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
@@ -19,7 +19,7 @@ import styles from './styles';
 import { valoresPadrao } from './consts';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { RootStackParamList } from 'src/routes';
-import { carregarDados, carregarMaisViagens, useGetViagensQuery } from 'src/store/reducers/viagem/middlewares';
+import { carregarMaisViagens, useGetViagensQuery } from 'src/store/reducers/viagem/middlewares';
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 import { imagesUrl } from 'src/config/api';
 
@@ -35,9 +35,9 @@ export default function Home(props: DrawerScreenProps<RootStackParamList, "Home"
   const { criarMensagem } = useSnackbar();
   const usuarioLogado = useAppSelector(state => state.usuario.usuarioLogado);
   const dispatch = useAppDispatch();
-  const { buscando, paginaAtual, totalPaginas, viagens } = useAppSelector(state => state.viagem);
   const { destinos, origens } = useAppSelector(state => state.filtro);
-  const {} = useGetViagensQuery();
+  const { isLoading, isFetching, data } = useGetViagensQuery();
+  const { paginaAtual = 1, totalPaginas = 1, viagens = [] } = data || {};
 
   const { cidade = '', estado = '' } = usuarioLogado || {};
   const filtros: Filtros = {
@@ -81,8 +81,6 @@ export default function Home(props: DrawerScreenProps<RootStackParamList, "Home"
       setDataVolta(valoresPadrao.dataVolta);
       setFiltrarPorUsuario(valoresPadrao.filtrarPorUsuario);
     });
-
-  useEffect(() => void dispatch(carregarDados()), []);
 
   const handleBuscar = async () => {
     let novasViagens = [];
@@ -221,7 +219,7 @@ export default function Home(props: DrawerScreenProps<RootStackParamList, "Home"
           </View>
         </View>
         <Portal>
-          <Modal visible={buscando}>
+          <Modal visible={isLoading || isFetching}>
             <View style={styles.buscandoContainer}>
               <Text style={styles.buscandoText}>
                 Aguarde uns instantes, estamos viajando o mundo das milhas para encontrar a melhor solução pra você!
